@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+    	Scanner sc = new Scanner(System.in);
+      	
+    	int[] each = new int[10];
+    	int[] num = new int[42];
+    	int check=0;
+    	
+    	for(int i=0; i<10; i++) {
+			each[i] = sc.nextInt();
+			each[i] = each[i]%42;
+			for(int j=0; j<42; j++) {
+	    		if (each[i]==j) {
+	    			num[j]++;
+	    			break;
+	    		}
+	    	}
+	    }
+		
+    	for(int j=0; j<42; j++) {
+    		if (num[j]>0) {
+    			check++;
+    		}    		
+    	}   	
+    	
+    	System.out.println(check);
+   	
+    }
+}
