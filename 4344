@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+    	Scanner sc = new Scanner(System.in);
+      	
+    	int testNumber = sc.nextInt();
+    	float[] avg = new float[testNumber];
+    	
+    	for(int i=0; i<testNumber;i++) {
+        	int goodStudent = 0;
+    		int studentNumber = sc.nextInt();
+    		int[] score = new int[studentNumber];   		
+    		int sum =0;
+    		
+    		for(int j=0; j<studentNumber; j++) {   			
+    			score[j] = sc.nextInt();
+    			sum += score[j];
+    		}
+    		avg[i] = (float)sum/studentNumber;
+    		
+    		for(int k=0; k<studentNumber; k++) {   			
+    			if(score[k]>avg[i]) {
+    				goodStudent++;
+    			} 
+    		}
+    		
+    		avg[i] = ((float)goodStudent/studentNumber)*100;
+    	}
+    	for(int i=0; i<testNumber;i++) {
+    		System.out.println(String.format("%.3f", avg[i])+"%");
+    	}
+    	
+    }
+}
