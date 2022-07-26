@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+	static Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		int N = sc.nextInt();
+		int count = 0;
+		for(int i=0; i<N; i++) {
+			if(GroupNumber()) {
+				count++;
+			}
+		}
+		
+		System.out.println(count);
+	}
+	
+	public static boolean GroupNumber(){
+		String word = sc.next();
+		int preChar = 0;
+		boolean[] check = new boolean[26];
+		
+		for(int j=0; j<word.length();j++) {
+			int ch = word.charAt(j);
+			if(ch != preChar) {
+				if(check[ch-'a']==false) {
+					check[ch-'a'] = true;
+					preChar = ch;
+				}
+				else 
+					return false;
+			}
+			else continue;
+		}
+		
+			return true;
+	}
+	
+	
+	
+	
+}
