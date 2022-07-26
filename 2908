@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		String first = sc.next();
+		String second = sc.next();
+		
+		
+		char[] newNum1 = first.toCharArray();
+		char temp1 = newNum1[0];
+		newNum1[0] = newNum1[2];
+		newNum1[2] = temp1;
+		
+		int newFirst = Integer.parseInt(new String(newNum1));
+		
+		
+		char[] newNum2 = second.toCharArray();
+		char temp2 = newNum2[0];
+		newNum2[0] = newNum2[2];
+		newNum2[2] = temp2;
+		
+		int newSecond = Integer.parseInt(new String(newNum2));
+		
+		if(newFirst>newSecond) {
+			System.out.println(newFirst);			
+		}
+		else System.out.println(newSecond);
+	}
+}
