@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	static int[] check = new int[26];
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		String T = sc.next();
+		char[] word = T.toCharArray();
+		Array(word); // a~z의 사용횟수를 구하는 함수
+		
+		int max = check[0];
+		for(int i=0; i<check.length; i++) {
+			if(max<check[i]) max = check[i];
+		}
+		
+		int count=0;
+		int a=0;
+		for(int i=0; i<26; i++) {
+			if(max == check[i]) {
+				count++;
+				a = i+65;
+			}
+		}
+		
+		if(count >1) System.out.println("?");
+		else if(count ==1) System.out.println((char)a);
+		
+		  
+	}
+	
+	public static void Array(char[] word){
+		for (int i = 65; i < 91; i++) {
+			for (int j = 0; j < word.length; j++) {
+				if (i == (byte) word[j])
+					check[i - 65]++;
+			}
+		}
+
+		for (int i = 97; i < 123; i++) {
+			for (int j = 0; j < word.length; j++) {
+				if (i == (byte) word[j])
+					check[i - 97]++;
+			}
+		}
+
+	}
+}
