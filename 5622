@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		String word = sc.next();
+		char[] array = word.toCharArray();
+		int sum = 0;
+		
+		for(int i=0; i<array.length;i++) {
+			if(array[i]=='A'||array[i]=='B'||array[i]=='C')
+				sum += 3;
+			else if(array[i]=='D'||array[i]=='E'||array[i]=='F')
+				sum += 4;
+			else if(array[i]=='G'||array[i]=='H'||array[i]=='I')
+				sum += 5;
+			else if(array[i]=='J'||array[i]=='K'||array[i]=='L')
+				sum += 6;
+			else if(array[i]=='M'||array[i]=='N'||array[i]=='O')
+				sum += 7;
+			else if(array[i]=='P'||array[i]=='Q'||array[i]=='R'||array[i]=='S')
+				sum += 8;
+			else if(array[i]=='T'||array[i]=='U'||array[i]=='V')
+				sum += 9;
+			else if(array[i]=='W'||array[i]=='X'||array[i]=='Y'||array[i]=='Z')
+				sum += 10;		
+		}
+		
+		System.out.println(sum);
+		
+		
+		
+		
+	}
+}
