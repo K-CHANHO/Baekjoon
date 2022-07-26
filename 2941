@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		String croaWord = sc.next();
+		croaWord = croaWord.replace("c=", "1");
+		croaWord = croaWord.replace("c-", "2");
+		croaWord = croaWord.replace("dz=", "3");
+		croaWord = croaWord.replace("d-", "4");
+		croaWord = croaWord.replace("lj", "5");
+		croaWord = croaWord.replace("nj", "6");
+		croaWord = croaWord.replace("s=", "7");
+		croaWord = croaWord.replace("z=", "8");
+		
+		System.out.println(croaWord.length());
+
+	}
+}
