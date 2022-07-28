@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int ascend = sc.nextInt();
+		int slide = sc.nextInt();
+		int high = sc.nextInt();
+		if(ascend>=high) System.out.println(1);
+		else {
+			int start = high-ascend;
+			int day= ascend - slide;
+			int how = (int) Math.ceil((double)start/day);
+			System.out.println(how+1);
+		}
+
+	}
+
+}
