@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		int N = scanner.nextInt();
+		int turn,location=1;
+		//4472
+		for(turn=1; turn<4472; turn++) {
+			if(N<=turn*(turn+1)/2) {
+				//System.out.println(turn);
+				break;
+			}
+		}
+		
+		if(turn%2==0) {
+			for(location=1; location<=turn; location++) {
+				if(N==(turn-1)*(turn)/2+location) {	
+					System.out.println(location+"/"+(turn-location+1));
+					break;
+				}
+			}
+		}
+		else {
+			for(location=1; location<=turn; location++) {
+				if(N==(turn)*(turn+1)/2-location+1) {		
+					System.out.println(location+"/"+(turn-location+1));
+					break;
+				}
+			}		
+		}
+		
+		
+		
+		
+		
+	}
+}
