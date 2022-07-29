@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	
+		int T = sc.nextInt(); 
+		int floor, wide, customer; 
+		
+		for(int i=0; i<T; i++) { 
+			int roomNum = 1;
+			floor = sc.nextInt();
+			wide = sc.nextInt();
+			customer = sc.nextInt();
+
+				int overw = customer / floor; 
+				int overf = customer % floor; 
+				roomNum = 1;
+				if(overf==0) { 				
+					roomNum = overw + 100*floor;
+				}
+				else {
+					roomNum = overw+1 + 100*overf;
+				}			
+			System.out.println(roomNum);
+		}
+		
+	}
+}
