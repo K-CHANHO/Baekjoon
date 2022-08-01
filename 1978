@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int N = sc.nextInt(); // 테스트 반복 횟수
+		int[] a = new int[N]; 입력할 숫자
+		int count =0; // 약수가 몇 개인지 판별
+		int check =0; // 소수 갯수 판별
+		
+		for(int i=0; i<N; i++) {
+			a[i] = sc.nextInt();
+		}
+		
+		for(int i=0; i<N; i++) {
+			for(int j=1; j<=a[i]; j++) { // 약수의 갯수를 판별하는 반복문
+				if(a[i]%j==0) {
+					count++;
+				}
+			}
+			if(count == 2) { // 약수가 2개면 check를 1 증가시킴
+				check++;
+			}
+			count =0; // 다음 수를 위해 초기화
+			
+		}
+		
+		System.out.print(check); // 소수 갯수 출력
+
+	}
+}
+
