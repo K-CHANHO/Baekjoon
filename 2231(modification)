@@ -1,0 +1,29 @@
+import java.util.*;
+    
+public class Main {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        
+        for(int k=0; k<=N; k++) { // N까지 모든 수에 대해 분배합을 실행
+        	int number = k;
+        	int sum = number;
+        	
+        	while(number !=0){ // 분배합을 sum에 저장
+        		sum += number%10;
+        		number /= 10;
+        	}
+        	
+        	if(sum==N) { // 분배합 한 숫자가 N이면. 즉 N의 생성자가 나타나면
+        		System.out.println(k); // 출력 후 끝내기
+        		break;
+        	}
+        	else if(k==N) { // N까지 실행했다는 것은 생성자가 없다는 의미이므로 0 출력.
+        		System.out.println("0");
+        		break;
+        	}
+   	
+        }
+    }
+}
+
