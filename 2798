@@ -1,0 +1,27 @@
+import java.util.*;
+    
+public class Main {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int M = scanner.nextInt();
+        int[] card = new int[N];
+        for(int i=0;i<N;i++) {
+        	card[i] = scanner.nextInt();
+        }
+        int sum=0;
+        int max=0;
+        
+        for(int i=0;i<N-2;i++) {
+        	for(int j=i+1; j<N-1; j++) {
+        		for(int k=j+1; k<N; k++) { // 세 카드의 합을 구하는 모든 경우의 수.
+        			sum = card[i]+card[j]+card[k];
+        			if(sum<=M && sum>max) max = sum; // 합이 M보다 작거나 같은 수 중에 최대값을 구하는 식.
+        		}
+        	}
+        }
+        System.out.println(max); 
+        
+    }
+}
+
