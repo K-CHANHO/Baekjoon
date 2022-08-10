@@ -1,0 +1,40 @@
+import java.util.*;
+    
+public class Main {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int k=0;
+        
+        for(k=0; k<=N; k++) {
+        	int a=1;
+        	int newnum = k;
+        	int check = k;
+        	int check2 = k;
+        	while(check/10!=0){
+        		check /= 10;
+        		a++;
+        	}
+        	int[] each = new int[a];
+        	check = k;
+        	for(int i=0; i<a; i++) {
+        		each[i] = check%10;
+        		check /= 10;
+        		newnum += each[i];
+        	}
+        	
+        	if(newnum==N) {
+        		System.out.println(check2);
+        		break;
+        	}
+        	else if(k==N) {
+        		System.out.println("0");
+        		break;
+        	}
+        	
+        	
+        	
+        }
+    }
+}
+
