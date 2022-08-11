@@ -1,0 +1,22 @@
+import java.util.*;
+    
+public class Main {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        
+        String key = "666"; // 666을 문자열로 선언.
+        int check = 0;
+        int i=0;
+        while(true) {
+        	i++;
+        	if(Integer.toString(i).contains(key)) check++; // 문자열로 바꾼 i에 666이 포함되어있으면 check 1 증가.
+        	if(N==check) { // check가 처음 입력한 값과 같게 되면, 즉 N번째 종말의 수를 찾으면 i값 출력하고 종료
+        		System.out.println(i);
+        		break;
+        	}
+        }
+   
+    }
+}
+
