@@ -1,0 +1,24 @@
+import java.util.*;
+
+public class Main {
+	static Scanner sc = new Scanner(System.in);
+	public static void main(String args[]) {
+		int n = sc.nextInt();
+		System.out.print(solution(n));
+	}
+	
+	public static int solution(int n) {
+		int answer = 0;
+		Queue<Integer> que = new LinkedList<>();
+		for(int i=1; i<=n; i++) que.offer(i);
+		
+		while(que.size()!=1) {
+			que.poll();
+			que.offer(que.poll());
+		}
+		
+		answer = que.poll();
+		return answer;
+		
+	}
+}
