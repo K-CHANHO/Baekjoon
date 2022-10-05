@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class Main {
+	static Scanner sc = new Scanner(System.in);
+	public static void main(String args[]) {
+		int n = sc.nextInt();
+		int k = sc.nextInt();
+		
+		System.out.print("<");
+		for(int x=0; x<n-1; x++)
+			System.out.print(solution(n,k)[x]+", ");
+		System.out.print(solution(n,k)[n-1]+">");
+	}
+	
+	public static int[] solution(int n, int k) {
+		int[] answer = new int[n];
+		Queue<Integer> que = new LinkedList<>();		
+		for(int i=1; i<=n; i++) que.offer(i);
+		
+		int c = 0;
+		int j =0;
+		while(!que.isEmpty()) {
+			c++;
+			if(c%k!=0) {
+				que.offer(que.poll());
+			}
+			else {
+				answer[j] = que.poll();
+				j++;
+			}
+		}
+		
+		return answer;	
+	}
+}
