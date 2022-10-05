@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Main {
+	
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		Stack<Character> stack = new Stack<>();
+		
+		while(true) {
+			String str = sc.nextLine();
+			if(str.equals(".")) break;
+			System.out.println(solution(str));
+			
+		}
+	}
+	
+	public static String solution(String str) {
+		String answer = "yes";
+		Stack<Character> stack = new Stack<>();
+		
+		for(char x : str.toCharArray()) {
+			if(x == '(' || x == '[') stack.push(x);
+			else if(x == ')') {
+				if(stack.isEmpty()) return answer = "no"; 
+				else if(stack.pop() == '[') return answer = "no";
+			}
+			else if(x==']') {
+				if(stack.isEmpty()) return answer = "no"; 
+				else if(stack.pop() == '(') return answer = "no";
+			}
+		}
+		
+		if(!stack.isEmpty()) answer = "no";
+		
+		return answer;
+	}
+}
