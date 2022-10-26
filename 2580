@@ -1,0 +1,75 @@
+import java.io.*;
+import java.util.*;
+
+class Main {
+	static int[][] arr;
+	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	
+	public static void solution(int row, int col) throws IOException {	
+		if(col==9) {
+			solution(row + 1, 0);
+			return;
+		}
+		
+		if(row == 9) {
+			// 출력
+			for(int i=0; i<9; i++) {
+				for(int j=0; j<9; j++) {
+					bw.write(Integer.toString(arr[i][j]) + " ");
+				}
+				bw.flush();
+				bw.newLine();
+			}
+			System.exit(0);
+		}
+		
+		if(arr[row][col] == 0) {
+			for(int i=1; i<=9; i++) {
+				if(check(row,col,i)) {
+					arr[row][col] = i;
+					solution(row, col+1);
+				}
+			}
+			arr[row][col] = 0;
+			return;
+		}
+		solution(row, col+1);
+	}
+	
+	
+	public static boolean check(int row, int col, int val) {
+		
+		for(int i=0; i<9; i++) {
+			if(arr[row][i] == val) return false;
+		}
+		
+		for(int i=0; i<9; i++) {
+			if(arr[i][col] == val) return false;
+		}
+		
+		int sr = (row / 3) * 3;
+		int sc = (col / 3) * 3;
+		for(int i=sr; i<sr+3; i++) {
+			for(int j=sc; j<sc+3; j++) {
+				if(arr[i][j] == val) return false;
+			}
+		}
+				
+		return true;
+	}
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		arr = new int[9][9];
+		for(int i=0; i<9; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+			for(int j=0; j<9; j++) {
+				arr[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+
+		solution(0,0);
+		bw.flush();
+		bw.close();	
+	}
+}
