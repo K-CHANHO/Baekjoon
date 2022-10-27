@@ -1,0 +1,70 @@
+import java.io.*;
+import java.util.*;
+
+class Main {
+	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	static int[][] arr;
+	static boolean[] visit;
+	static int min=Integer.MAX_VALUE, n;
+	
+	public static void solution(int L, int idx) throws IOException {
+		if(L == n/2) {
+			diff();
+
+		}
+		else {
+			for(int i=idx; i<n; i++) {
+				if(!visit[i]) {
+					visit[i] = true;
+					solution(L+1, i+1);
+					visit[i] = false;
+				}
+			}
+			
+		}
+		
+	}
+	
+	public static void diff() {
+		int start = 0;
+		int link = 0;
+		
+		for(int i=0; i<n-1; i++) {
+			for(int j=i+1; j<n; j++) {
+				if(visit[i]==true && visit[j]==true) {
+					start += arr[i][j];
+					start += arr[j][i];
+				}
+				else if(visit[i]==false && visit[j]==false) {
+					link += arr[i][j];
+					link += arr[j][i];
+				}
+			}
+		}
+		
+		int val = Math.abs(start - link);
+		min = Math.min(min, val);
+	}
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		n = Integer.parseInt(br.readLine());
+		
+		arr = new int[n][n];
+		visit = new boolean[n];
+		
+		for(int i=0; i<n; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+			for(int j=0; j<n; j++) {
+				arr[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+		
+		solution(0, 0);
+
+		bw.write(Integer.toString(min));
+		bw.flush();
+		bw.close();	
+	}
+}
